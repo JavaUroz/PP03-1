@@ -1,16 +1,16 @@
+from types import MappingProxyType
 import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-iris = sns.load_dataset('iris')
-registros = len(iris)
-atributos = iris.shape
-tipos = iris.dtypes.astype(str)
-estadistico = iris.describe()
-categorias = iris.species.unique()
-g = sns.pairplot(iris, hue='species')
+mpg = sns.load_dataset('mpg')
+registros = len(mpg)
+atributos = mpg.shape
+tipos = mpg.dtypes.astype(str)
+estadistico = mpg.describe()
+categorias = mpg.species.unique()
+g = sns.pairplot(mpg, hue='species')
 
 def show_explore_page():
     st.title("Explorador de la fuente de  datos")
@@ -29,7 +29,7 @@ def show_explore_page():
     st.dataframe(estadistico)
 
     st.subheader("Vista detallada de los registros")
-    st.dataframe(iris)
+    st.dataframe(mpg)
 
     st.write("""#### Relaciones entre atributos""")
 
